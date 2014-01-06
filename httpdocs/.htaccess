@@ -1,0 +1,13 @@
+RewriteEngine on
+
+AddDefaultCharset utf-8
+
+Options +FollowSymLinks
+RewriteCond %{HTTP_HOST} ^www\.fiat-doblo-ukraina\.com\.ua
+RewriteRule ^(.*)$ http://fiat-doblo-ukraina.com.ua/$1 [R=permanent,L]
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# otherwise forward it to index.php
+RewriteRule . index.php
